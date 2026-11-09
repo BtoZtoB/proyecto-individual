@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo 1 | Plantilla elegante</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <header>
+    <a href="#inicio" class="marca">EMPRESA <span>01</span></a>
+
+    <button class="hamburguesa" type="button"
+      aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="menu">☰</button>
+
+    <nav id="menu">
+      <a href="../index.html">← Portafolio</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="portada contenedor">
+      <div>
+        <span class="etiqueta">PLANTILLA · CATÁLOGO 01</span>
+        <h1>Una selección<br>con identidad.</h1>
+        <p>Espacio para presentar la empresa y su propuesta.</p>
+        <a href="#catalogo" class="boton">Explorar catálogo ↗</a>
+      </div>
+
+      <div class="carrusel" aria-label="Imágenes destacadas">
+        <div class="slides">
+          <div class="slide">
+            <img src="img/banner1.jpg" alt="Primera imagen destacada">
+          </div>
+          <div class="slide" hidden>
+            <img src="img/banner2.jpg" alt="Segunda imagen destacada">
+          </div>
+          <div class="slide" hidden>
+            <img src="img/banner3.jpg" alt="Tercera imagen destacada">
+          </div>
+        </div>
+
+        <div class="controles">
+          <button id="anterior" type="button" aria-label="Imagen anterior">←</button>
+          <span id="numero-slide" aria-live="off">01 / 03</span>
+          <button id="siguiente" type="button" aria-label="Imagen siguiente">→</button>
+          <button id="pausa" type="button">Pausar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="contenedor seccion">
+      <div class="encabezado">
+        <div>
+          <span class="etiqueta">EXPLORA LA COLECCIÓN</span>
+          <h2>Nuestro catálogo</h2>
+        </div>
+        <label>
+          <span class="sr">Buscar producto</span>
+          <input id="buscar" type="search" placeholder="Buscar producto...">
+        </label>
+      </div>
+
+      <div class="filtros" role="group" aria-label="Categorías">
+        <button class="activo" data-categoria="todos" type="button"
+          aria-pressed="true">Todos</button>
+        <button data-categoria="1" type="button" aria-pressed="false">Categoría 1</button>
+        <button data-categoria="2" type="button" aria-pressed="false">Categoría 2</button>
+        <button data-categoria="3" type="button" aria-pressed="false">Categoría 3</button>
+      </div>
+
+      <p id="contador" class="contador" aria-live="polite"></p>
+      <div id="productos" class="productos"></div>
+      <p id="vacio" hidden>No se encontraron productos.</p>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+      <div class="contenedor nosotros-grid">
+        <span class="etiqueta">SOBRE LA EMPRESA</span>
+        <div>
+          <h2>Una historia para compartir.</h2>
+          <p>Espacio para la historia y las características de la empresa.</p>
+          <button id="ver-mas" class="boton" type="button"
+            aria-expanded="false" aria-controls="extra">Conocer más</button>
+          <div id="extra">
+            <p>Aquí podrás agregar la misión, la visión y los valores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contenedor seccion contacto">
+      <span class="etiqueta">CONTACTO</span>
+      <h2>Conversemos.</h2>
+      <p>Espacio para la dirección, el teléfono y los horarios.</p>
+      <div class="redes">
+        <button data-red="whatsapp" type="button">WhatsApp ↗</button>
+        <button data-red="facebook" type="button">Facebook ↗</button>
+        <button data-red="tiktok" type="button">TikTok ↗</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor pie">
+      <strong>EMPRESA 01</strong>
+      <a href="../index.html">Volver al portafolio ↗</a>
+      <span>© <span id="anio"></span> · Catálogo de demostración</span>
+    </div>
+  </footer>
+
+  <dialog id="detalle" aria-labelledby="detalle-titulo">
+    <button id="cerrar" type="button" aria-label="Cerrar detalles">✕</button>
+    <span class="etiqueta">DETALLES DEL PRODUCTO</span>
+    <h2 id="detalle-titulo"></h2>
+    <p id="detalle-texto"></p>
+    <strong id="detalle-precio"></strong>
+  </dialog>
+
+  <div id="aviso" role="status"></div>
+
+</body>
+</html>

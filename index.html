@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio personal y proyectos de desarrollo web">
+  <title>Mi portafolio</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <header class="cabecera">
+    <a href="#inicio" class="marca">Mi portafolio<span>.</span></a>
+
+    <button
+      id="boton-menu"
+      class="boton-menu"
+      type="button"
+      aria-label="Abrir menú"
+      aria-controls="menu"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="menu" class="menu" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="contenedor portada">
+      <div class="presentacion">
+        <span class="etiqueta">PORTAFOLIO PERSONAL</span>
+
+        <h1>Hola, soy<br><span>Bryan Zelaya</span></h1>
+
+        <p>
+          Estoy aprendiendo desarrollo web y creando proyectos
+          con HTML, CSS, JavaScript y jQuery.
+        </p>
+
+        <div class="acciones">
+          <a href="#proyectos" class="boton principal">
+            Explorar proyectos ↗
+          </a>
+          <a href="#sobre-mi" class="boton secundario">
+            Sobre mí
+          </a>
+        </div>
+
+        <div class="tecnologias">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>jQuery</span>
+        </div>
+      </div>
+
+      <div class="perfil">
+        <div class="marco-foto">
+          <img
+            src="img/perfil.jpg"
+            alt="Fotografía de presentación"
+            data-respaldo="Tu fotografía">
+        </div>
+
+        <div class="nota-perfil">
+          <span class="punto"></span>
+          Aprendiendo y creando
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="seccion franja">
+      <div class="contenedor sobre-mi">
+        <div>
+          <span class="etiqueta">UN POCO SOBRE MÍ</span>
+          <h2>Aprender también<br>es crear.</h2>
+        </div>
+
+        <div>
+          <p>
+            Me interesa desarrollar páginas web organizadas,
+            atractivas y fáciles de utilizar. En este portafolio
+            presento mis proyectos y lo que estoy aprendiendo.
+          </p>
+
+          <button
+            id="boton-info"
+            class="boton secundario"
+            type="button"
+            aria-controls="informacion-extra"
+            aria-expanded="false">
+            Más sobre mí
+          </button>
+
+          <div id="informacion-extra">
+            <p>
+              Mi objetivo es mejorar mis habilidades de programación,
+              practicar con distintos diseños y aplicar mis conocimientos
+              en proyectos que pueda seguir personalizando.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" class="contenedor seccion">
+      <span class="etiqueta">MIS HERRAMIENTAS</span>
+      <h2>Lo que estoy aprendiendo</h2>
+
+      <div class="habilidades">
+        <article class="habilidad">
+          <span class="numero">01</span>
+          <h3>HTML</h3>
+          <p>Estructura y organización del contenido de una página.</p>
+        </article>
+
+        <article class="habilidad">
+          <span class="numero">02</span>
+          <h3>CSS</h3>
+          <p>Colores, estilos y adaptación a diferentes pantallas.</p>
+        </article>
+
+        <article class="habilidad">
+          <span class="numero">03</span>
+          <h3>JavaScript</h3>
+          <p>Funciones e interacciones para las páginas web.</p>
+        </article>
+
+        <article class="habilidad">
+          <span class="numero">04</span>
+          <h3>jQuery</h3>
+          <p>Eventos, animaciones y cambios dinámicos de contenido.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proyectos" class="contenedor seccion proyectos-seccion">
+      <div class="titulo-proyectos">
+        <div>
+          <span class="etiqueta">MIS PROYECTOS WEB</span>
+          <h2>Tres estilos, tres catálogos.</h2>
+        </div>
+        <p>
+          Plantillas preparadas para personalizar con distintas empresas.
+        </p>
+      </div>
+
+      <div class="filtros" role="group" aria-label="Filtrar proyectos">
+        <button class="filtro activo" type="button"
+          data-filtro="todos" aria-pressed="true">
+          Todos
+        </button>
+
+        <button class="filtro" type="button"
+          data-filtro="elegante" aria-pressed="false">
+          Elegante
+        </button>
+
+        <button class="filtro" type="button"
+          data-filtro="moderno" aria-pressed="false">
+          Moderno
+        </button>
+
+        <button class="filtro" type="button"
+          data-filtro="creativo" aria-pressed="false">
+          Creativo
+        </button>
+      </div>
+
+      <p id="contador" class="contador" aria-live="polite">
+        3 proyectos
+      </p>
+
+      <div class="proyectos">
+
+        <article class="proyecto"
+          data-estilo="elegante" data-color="#eee4d7">
+
+          <a href="catalogo1/index.html"
+            class="imagen-proyecto tono-1"
+            aria-label="Abrir catálogo 1, estilo elegante">
+            <img
+              src="img/catalogo1.jpg"
+              alt="Vista previa del catálogo elegante"
+              data-respaldo="Catálogo 01"
+              loading="lazy">
+          </a>
+
+          <div class="proyecto-info">
+            <span class="estado">01 / ESTILO ELEGANTE</span>
+            <h3>Catálogo elegante</h3>
+
+            <p>
+              Diseño claro, tonos neutros y una colección
+              organizada en tarjetas.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>jQuery</span>
+            </div>
+
+            <a href="catalogo1/index.html" class="enlace-proyecto">
+              Abrir catálogo ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="proyecto"
+          data-estilo="moderno" data-color="#e0e6f4">
+
+          <a href="catalogo2/index.html"
+            class="imagen-proyecto tono-2"
+            aria-label="Abrir catálogo 2, estilo moderno">
+            <img
+              src="img/catalogo2.jpg"
+              alt="Vista previa del catálogo moderno"
+              data-respaldo="Catálogo 02"
+              loading="lazy">
+          </a>
+
+          <div class="proyecto-info">
+            <span class="estado">02 / ESTILO MODERNO</span>
+            <h3>Catálogo moderno</h3>
+
+            <p>
+              Diseño oscuro, navegación lateral y productos
+              presentados de forma horizontal.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>jQuery</span>
+            </div>
+
+            <a href="catalogo2/index.html" class="enlace-proyecto">
+              Abrir catálogo ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="proyecto"
+          data-estilo="creativo" data-color="#f4dfe7">
+
+          <a href="catalogo3/index.html"
+            class="imagen-proyecto tono-3"
+            aria-label="Abrir catálogo 3, estilo creativo">
+            <img
+              src="img/catalogo3.jpg"
+              alt="Vista previa del catálogo creativo"
+              data-respaldo="Catálogo 03"
+              loading="lazy">
+          </a>
+
+          <div class="proyecto-info">
+            <span class="estado">03 / ESTILO CREATIVO</span>
+            <h3>Catálogo creativo</h3>
+
+            <p>
+              Colores cálidos, bordes marcados y tarjetas
+              grandes con un estilo expresivo.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>jQuery</span>
+            </div>
+
+            <a href="catalogo3/index.html" class="enlace-proyecto">
+              Abrir catálogo ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion contacto">
+      <div class="contenedor">
+        <span class="etiqueta">SIGAMOS EN CONTACTO</span>
+        <h2>Gracias por visitar<br>mi portafolio.</h2>
+        <p>Espacio para mis redes sociales y medios de contacto.</p>
+
+        <div class="redes">
+          <button class="red whatsapp" type="button" data-red="whatsapp">
+            WhatsApp ↗
+          </button>
+
+          <button class="red facebook" type="button" data-red="facebook">
+            Facebook ↗
+          </button>
+
+          <button class="red tiktok" type="button" data-red="tiktok">
+            TikTok ↗
+          </button>
+
+          <button class="red github" type="button" data-red="github">
+            GitHub ↗
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="contenedor footer-contenido">
+      <a href="#inicio" class="marca">Mi portafolio<span>.</span></a>
+
+      <nav class="footer-enlaces" aria-label="Navegación del pie de página">
+        <a href="#inicio">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <p>© <span id="anio"></span> Bryan Zelaya</p>
+    </div>
+  </footer>
+
+  <div id="aviso" class="aviso" role="status"></div>
+
+</body>
+</html>
