@@ -1,0 +1,14 @@
+/* C3-A1: viewport dinámico, táctil, elipsis y teclado. */
+body{min-height:100vh;min-height:100dvh;}
+.portada>*,.kit-destacado>*,.producto>*,.info-producto,.encabezado>*,.footer-ponky-superior>*{min-width:0;}
+.info-producto h3,.titulo-truncado{display:block;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+button,input,select,summary{min-height:44px;min-width:44px;}
+button{touch-action:manipulation;}.favorito{width:44px;height:44px;}
+.filtros,.controles,.herramientas-extra,.acciones-ponky{gap:12px;}
+#buscar,#formKitPonky input,#formKitPonky textarea{font-size:16px;}
+#formKitPonky input[type=file]{padding:10px;font-size:16px;}
+input,select,textarea{scroll-margin-block:110px 28px;}
+#detalle{max-height:85dvh;overflow-y:auto;overscroll-behavior:contain;scroll-padding-block:16px;}
+#aviso{top:110px;bottom:auto;pointer-events:none;}
+@media(max-width:600px){.encabezado label{display:block;width:100%;}#buscar{min-width:0;}.herramientas-extra{align-items:stretch;flex-direction:column;}.herramientas-extra select{flex:1;min-width:0;}.footer-ponky-superior>*{max-width:100%;}}
+@media(orientation:landscape) and (max-height:500px){header{padding:6px 5%;}.portada{min-height:auto;padding-block:20px;}.seccion{padding-block:20px;}#menu{max-height:calc(100dvh - 80px);overflow-y:auto;}#detalle{max-height:90dvh;padding-top:36px;}#aviso{top:74px;}}

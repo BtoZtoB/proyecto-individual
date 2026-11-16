@@ -1,0 +1,138 @@
+:root{--fondo:#fffaf0;--texto:#482111;--suave:#795d49;--borde:#ead6b5;--acento:#a9230f;--form-acento:#a9230f;--form-borde:#c9a97f;--form-input:#fff8e9;--form-panel:#fffefa;--acento-ui:#d89418;}
+body[data-marca="ponky"]{--form-acento:#a9230f;background:var(--fondo);}
+header{background:#fffdf8;border-bottom:2px solid #d8a12d;padding-block:12px;}
+.marca-ponky{display:flex;align-items:center;gap:12px;letter-spacing:0;}
+.logo-ponky{width:64px;height:64px;object-fit:contain;}
+.nombre-ponky{font:700 32px/1 Georgia,serif;color:#a9230f;}
+.nombre-ponky small{display:block;margin-top:7px;font:11px/1.3 Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#795d49;}
+.hamburguesa{border-color:#d8b880;color:#a9230f;background:#fff7e8;}
+nav{background:#fffdf8;border-color:#e1c38f;}
+nav a:hover{background:#fae8bd;}
+h1 em{font-weight:normal;color:#a9230f;}
+.portada{gap:44px;padding-block:60px;}
+.portada h1{font-size:clamp(44px,5.5vw,74px);}
+.portada p{font-size:15px;}
+.portada .direccion-breve{font-size:12px;margin-top:24px;}
+.acciones-ponky{display:flex;flex-wrap:wrap;gap:12px;}
+.boton{background:#a9230f;border-radius:8px;font-weight:bold;min-height:44px;}
+.boton-crema{color:#8e250e;background:#f5e2bc;}
+.slides{border-radius:24px 100px 24px 24px;background:#f6e8c7;border:1px solid #e8c877;}
+.slide img{object-fit:contain;padding:18px;}
+.producto{border-radius:16px;border-color:#ead6b5;box-shadow:0 6px 24px #7542100a;background:#fffefa;}
+.imagen-producto{height:230px;}
+.imagen-producto img{object-fit:cover;}
+.producto-pie{align-items:flex-start;flex-direction:column;}
+.producto-pie strong{font-size:13px;color:#8f3515;}
+.producto-pie button{background:#f4e1bb;color:#612610;border-radius:7px;font-weight:bold;}
+.info-producto h3{font-size:24px;}
+#detalle{width:min(640px,94vw);max-height:88dvh;border-radius:16px;background:#fffefa;}
+#detalle-texto{white-space:pre-line;}
+#detalle-precio{display:block;margin:12px 0 20px;color:#8f3515;}
+.kit-destacado{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center;border-block:1px solid #e7c783;}
+.contenido-kit{padding-left:20px;line-height:2;color:#6d492f;font-size:14px;}
+.precio-kit{font-weight:bold;color:#8f3515;}
+.foto-kit{min-height:320px;border-radius:20px;background:#f5e4bf;overflow:hidden;}
+.foto-kit img{display:block;width:100%;height:360px;object-fit:cover;}
+.reemplazo-ponky{min-height:320px;display:grid;place-content:center;text-align:center;padding:24px;gap:12px;color:#75502b;}
+.reemplazo-ponky span{font:28px Georgia,serif;}.reemplazo-ponky small{font-size:13px;}
+.reemplazo-ponky[hidden]{display:none;}
+#personalizacionPonky{border-top:1px solid var(--borde);padding-top:16px;}
+#personalizacionPonky h3{font-size:24px;margin:0 0 12px;}
+#personalizacionPonky p{font-size:13px;}
+#formKitPonky label{display:block;margin:16px 0 8px;font-size:13px;font-weight:bold;}
+#formKitPonky input,#formKitPonky textarea{display:block;width:100%;max-width:100%;padding:12px;border:1px solid #c9a97f;border-radius:8px;color:#482111;background:#fff8e9;font:16px Arial,sans-serif;}
+#formKitPonky textarea{min-height:100px;resize:vertical;}
+#formKitPonky input[type="file"]{font-size:13px;}
+#formKitPonky .error-kit{display:block;min-height:20px;margin-top:5px;font-size:12px;color:#a1263b;}
+#formKitPonky [aria-invalid="true"]{border:2px solid #a1263b;}
+#logoKitPreview{display:block;max-width:160px;max-height:140px;object-fit:contain;background:white;border:1px solid var(--borde);border-radius:10px;margin:12px 0;}
+#logoKitPreview[hidden]{display:none;}
+.acciones-logo{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.acciones-logo button{border:1px solid #c9a97f;background:#fff8e9;color:#6d3217;border-radius:8px;padding:10px 14px;font:inherit;}
+.aviso-kit{padding:14px;background:#fbefce;border-left:3px solid #d5a427;border-radius:6px;}
+#guardarKit{margin-block:12px;}
+#resultadoKit{color:#28643f;}
+.solicitudes-ponky{padding:0;list-style:none;display:grid;gap:16px;}
+.solicitud-ponky{padding:20px;border:1px solid var(--borde);border-radius:12px;background:#fffefa;overflow-wrap:anywhere;}
+.solicitud-ponky h3{font-size:22px;margin:0 0 12px;}
+.solicitud-ponky p{font-size:13px;margin:8px 0;}
+.solicitud-ponky .estado-pedido{font-weight:bold;color:#8f3515;}
+@media(max-width:850px){.portada{gap:24px}.kit-destacado{gap:24px;}.productos{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.kit-destacado{grid-template-columns:minmax(0,1fr);}.productos{grid-template-columns:minmax(0,1fr);}.logo-ponky{width:50px;height:50px;}.nombre-ponky{font-size:28px;}.portada{padding-block:36px;}.foto-kit img{height:280px}.slide{height:300px}}
+@media(orientation:landscape) and (max-height:500px){header{padding-block:6px}.logo-ponky{width:44px;height:44px}.nombre-ponky{font-size:24px}.nombre-ponky small{margin-top:4px}.portada{padding-block:24px;}.kit-destacado{padding-block:24px}}
+
+/* Logo fijo con recorte circular: oculta el margen blanco sin editar tu PNG. */
+.logo-circular{position:relative;display:block;flex-shrink:0;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff1cf;border:3px solid #a9230f;}
+.logo-circular>img{position:absolute;display:block;width:119%;height:119%;max-width:none;left:50%;top:50%;transform:translate(-50%,-48.8%);object-fit:cover;padding:0;border-radius:0;}
+.logo-circular .reemplazo-ponky{position:absolute;inset:0;display:grid;place-content:center;min-height:0;padding:0;color:#a9230f;font:700 36px Georgia,serif;}
+.logo-circular .reemplazo-ponky[hidden]{display:none;}
+.logo-circular-cabecera{width:64px;}
+.logo-circular-cabecera .reemplazo-ponky{font-size:26px;}
+.logo-presentacion{display:flex;align-items:center;justify-content:center;min-width:0;}
+.logo-circular-portada{width:min(100%,390px);box-shadow:0 12px 40px #9a5d1214;}
+.carrusel-productos-ponky{padding-top:12px;padding-bottom:40px;}
+.carrusel-productos-ponky h2{font-size:clamp(28px,4vw,38px);}
+.carrusel-productos-ponky .slides{border-radius:18px;}
+.carrusel-productos-ponky .slide{position:relative;height:340px;}
+.carrusel-productos-ponky .slide img{padding:18px 18px 56px;object-fit:contain;}
+.nombre-slide{position:absolute;bottom:0;left:0;right:0;padding:14px 20px;text-align:center;background:#fffbf0eb;color:#612610;font:700 18px Georgia,serif;}
+@media(max-width:600px){.logo-circular-cabecera{width:50px;}.logo-circular-portada{width:min(100%,300px);}.carrusel-productos-ponky .slide{height:280px;}}
+@media(orientation:landscape) and (max-height:500px){.logo-circular-cabecera{width:44px;}.logo-circular-portada{width:min(100%,240px);}.carrusel-productos-ponky .slide{height:240px;}}
+
+/* Carrusel compacto: la fotografía ocupa el panel, sin márgenes interiores. */
+.carrusel-productos-ponky .carrusel{width:100%;max-width:560px;margin-inline:auto;}
+.carrusel-productos-ponky .slides{background:#fff7e8;}
+.carrusel-productos-ponky .slide{height:auto;aspect-ratio:1 / 1;}
+.carrusel-productos-ponky .slide img{display:block;width:100%;height:100%;padding:0;object-fit:cover;object-position:center;}
+.carrusel-productos-ponky .nombre-slide{background:#fffbf0f2;padding:14px 20px;}
+.carrusel-productos-ponky .placeholder{padding-bottom:64px;}
+@media(max-width:600px){.carrusel-productos-ponky .slide{height:auto;aspect-ratio:1 / 1;}}
+@media(orientation:landscape) and (max-height:500px){.carrusel-productos-ponky .carrusel{max-width:400px;}.carrusel-productos-ponky .slide{height:auto;aspect-ratio:4 / 3;}}
+
+/* Contacto final: enlaces directos, sin formulario ni bloques académicos. */
+.solo-lectores{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;}
+.footer-ponky{padding:38px 0 18px;background:#482111;color:#fff5df;scroll-margin-top:110px;}
+.footer-ponky-superior{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding-bottom:26px;}
+.footer-ponky-marca strong{font:700 32px Georgia,serif;}
+.footer-ponky-marca strong span{display:block;margin-top:6px;font:11px Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;color:#f6cf88;}
+.footer-ponky-marca p{margin:14px 0 0;font:13px/1.8 Arial,sans-serif;color:#ead5b8;}
+.redes-ponky{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;justify-content:center;}
+.icono-red-ponky{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:64px;min-height:72px;padding:12px 10px;border:1px solid #f6cf8840;border-radius:12px;background:#ffffff08;color:#ffe7bc;transition:background .2s,transform .2s;}
+.icono-red-ponky span{font:11px/1.4 Arial,sans-serif;}
+.icono-red-ponky svg{width:25px;height:25px;flex-shrink:0;}
+.icono-red-ponky:hover{background:#ffffff18;transform:translateY(-3px);}
+.icono-red-ponky:focus-visible{outline:3px solid #f6cf88;outline-offset:4px;}
+.footer-ponky-inferior{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #f6cf8830;padding-top:16px;font:12px/1.6 Arial,sans-serif;color:#ead5b8;}
+.footer-ponky-inferior a{display:inline-flex;align-items:center;min-height:44px;color:#ffe7bc;}
+@media(max-width:600px){.footer-ponky-superior{justify-content:center;text-align:center;}.footer-ponky-inferior{justify-content:center;text-align:center;}.redes-ponky{gap:10px;}.icono-red-ponky{min-width:60px;padding-inline:8px;}}
+
+/* Fotos ampliables y consulta por producto. */
+.ampliar-foto-ponky{display:block;position:relative;width:100%;height:100%;min-width:44px;min-height:44px;padding:0;border:0;background:transparent;color:inherit;font:inherit;cursor:zoom-in;overflow:hidden;}
+.ampliar-foto-ponky:focus-visible{outline:3px solid #a9230f;outline-offset:-4px;}
+.pista-ampliar{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);padding:7px 10px;border-radius:7px;background:#482111db;color:#fff8ea;font:11px/1.4 Arial,sans-serif;pointer-events:none;}
+.producto-pie .consultar-producto-ponky{background:#176b46;color:white;min-height:44px;padding:11px 14px;}
+.acciones-detalle-ponky{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
+.acciones-detalle-ponky button{padding:12px 16px;min-width:44px;min-height:44px;border:1px solid #d2af77;border-radius:8px;background:#f5e2bc;color:#612610;font:700 13px Arial,sans-serif;cursor:pointer;}
+.visor-fotos-ponky{width:min(960px,94vw);max-width:94vw;max-height:92dvh;overflow-y:auto;padding:18px;border:1px solid #a3794e;border-radius:16px;background:#261b15;color:#fff8ea;}
+.visor-fotos-ponky::backdrop,.consulta-producto-ponky::backdrop{background:#17120fba;backdrop-filter:blur(3px);}
+.visor-cabecera{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.visor-cabecera h2{margin:0;font:26px/1.25 Georgia,serif;min-width:0;overflow-wrap:anywhere;}
+#cerrarVisorPonky{width:44px;height:44px;border:1px solid #ad8c66;border-radius:9px;background:#ffffff12;color:white;font-size:22px;cursor:pointer;}
+.visor-lienzo{display:flex;align-items:center;justify-content:center;min-width:0;height:min(65dvh,650px);border-radius:10px;background:#17120f;}
+#fotoAmpliadaPonky{display:block;width:100%;height:100%;object-fit:contain;padding:0;}
+#fotoAmpliadaPonky[hidden],#errorFotoPonky[hidden]{display:none;}
+#errorFotoPonky{padding:24px;text-align:center;color:#f4d9b2;}
+.visor-controles{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:14px;font:14px Arial,sans-serif;}
+.visor-controles button{width:48px;min-height:44px;border:1px solid #ad8c66;background:#ffffff12;border-radius:8px;color:white;font-size:20px;cursor:pointer;}
+.consulta-producto-ponky{position:fixed;width:min(560px,94vw);max-height:88dvh;overflow-y:auto;padding:42px 24px 24px;border:1px solid #d2af77;border-radius:16px;background:#fffaf0;color:#482111;}
+.consulta-producto-ponky h2{font:28px/1.3 Georgia,serif;margin:14px 0;}
+.consulta-producto-ponky p{font:14px/1.7 Arial,sans-serif;color:#70513d;}
+#cerrarConsultaPonky{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;border-radius:8px;background:transparent;color:#482111;font-size:22px;cursor:pointer;}
+.mensaje-consulta-ponky{padding:16px;border:1px solid #dbc7a5;border-radius:10px;background:#f9eccf;overflow-wrap:anywhere;user-select:text;}
+.acciones-consulta{display:flex;flex-wrap:wrap;gap:12px;}
+.acciones-consulta button,.acciones-consulta a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:12px 16px;border:0;border-radius:8px;font:700 13px Arial,sans-serif;cursor:pointer;background:#f1dfbc;color:#612610;}
+.acciones-consulta #abrirWhatsAppPonky{background:#176b46;color:white;}
+#estadoConsultaPonky{color:#176b46;}
+.visor-fotos-ponky button:focus-visible,.consulta-producto-ponky button:focus-visible,.consulta-producto-ponky a:focus-visible{outline:3px solid #d99c32;outline-offset:3px;}
+@media(max-width:600px){.visor-fotos-ponky{padding:12px;}.visor-cabecera h2{font-size:22px;}.consulta-producto-ponky{padding-inline:18px;}.acciones-consulta>*{flex:1;}}
+@media(orientation:landscape) and (max-height:500px){.visor-fotos-ponky{max-height:94dvh;padding:10px;}.visor-cabecera{margin-bottom:8px;}.visor-cabecera h2{font-size:20px;}.visor-lienzo{height:52dvh;}.visor-controles{margin-top:8px;}}
