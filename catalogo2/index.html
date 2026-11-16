@@ -4,18 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo 2 | Plantilla moderna</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css?v=guia2">
+  <link rel="stylesheet" href="../assets/catalogos-extra.css?v=guia2">
+  <link rel="stylesheet" href="../assets/responsividad.css?v=guia2">
+  <script defer src="../assets/vendor/jquery-3.7.1.min.js"></script>
+  <script defer src="../assets/catalogos.js?v=guia2"></script>
+  <script defer src="../assets/modulos.js?v=guia2"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#142133">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" href="../icons/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="../assets/pwa.css?v=pwa1">
+  <script defer src="../sync-config.js"></script>
+  <script defer src="../assets/cola-offline.js"></script>
+  <script defer src="../pwa.js?v=pwa1"></script>
+  <link rel="stylesheet" href="../assets/ui-avanzada.css?v=ui2">
+  <script defer src="../assets/ui-avanzada.js?v=ui2"></script>
 </head>
-<body>
+<body data-catalogo="2">
 
-  <header>
+  <header data-hidratado="false">
     <a href="#inicio" class="marca">EMPRESA<span> / 02</span></a>
-    <button id="abrir-menu" type="button"
+    <button id="abrir-menu" disabled aria-busy="true" type="button"
       aria-label="Abrir menú" aria-expanded="false"
       aria-controls="menu">☰</button>
   </header>
+  <span id="estadoHidratacion" class="solo-lectores" role="status">Preparando interacción…</span>
 
   <div id="fondo-menu" hidden></div>
 
@@ -45,7 +60,7 @@
             <a href="#catalogo" class="boton">Ver catálogo ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner1.jpg" alt="Imagen destacada 1">
+            <img src="../assets/img/banner1.svg" alt="Imagen destacada 1">
           </div>
         </div>
 
@@ -57,7 +72,7 @@
             <a href="#catalogo" class="boton">Explorar ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner2.jpg" alt="Imagen destacada 2">
+            <img src="../assets/img/banner2.svg" alt="Imagen destacada 2">
           </div>
         </div>
 
@@ -69,7 +84,7 @@
             <a href="#nosotros" class="boton">Conocer más ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner3.jpg" alt="Imagen destacada 3">
+            <img src="../assets/img/banner3.svg" alt="Imagen destacada 3">
           </div>
         </div>
 
@@ -120,6 +135,7 @@
         <p>Aquí se agregarán la misión, la visión y las ventajas de la empresa.</p>
       </div>
     </section>
+    <div id="modulos-practicos" class="contenedor seccion"></div>
   </main>
 
   <footer id="contacto">

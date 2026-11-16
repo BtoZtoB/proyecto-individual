@@ -1,0 +1,54 @@
+/* Reglas comunes de la Parte 2. Se cargan después del CSS de cada estilo. */
+:root {
+  --form-panel: #ffffff;
+  --form-input: #fafafa;
+  --form-acento: #302d28;
+  --form-contraste: #ffffff;
+  --form-borde: #bfc5cf;
+  --form-error: #ad3151;
+  --form-exito: #26734f;
+}
+body[data-catalogo="portafolio"] { --form-acento: #245b91; }
+body[data-catalogo="2"] {
+  --form-panel: #191d28;
+  --form-input: #101219;
+  --form-acento: #9cbbff;
+  --form-contraste: #101219;
+  --form-borde: #65738a;
+  --form-error: #ffadba;
+  --form-exito: #83d6af;
+}
+body[data-catalogo="4"] { --form-acento: #28696c; }
+html { scroll-padding-top: 110px; }
+body { min-height: 100vh; min-height: 100dvh; }
+main { min-width: 0; }
+main > *, .contenedor > *, .proyectos > *, .productos > *, .producto > *, .producto-pie > *, .catalogo-layout > *, .encabezado > *, .sobre-mi > *, .nosotros > *, .slide > *, .footer-contenido > * { min-width: 0; }
+p, h1, h2, h3, strong, label { overflow-wrap: anywhere; }
+button, select, input:not([type="checkbox"]):not([type="radio"]) { min-width: 44px; min-height: 44px; }
+button { flex-shrink: 0; touch-action: manipulation; }
+a { min-width: 44px; min-height: 44px; }
+.marca, .enlace-proyecto, .footer-enlaces a, .footer-contenido > a, .pie a, footer .marca { display: inline-flex; align-items: center; }
+.menu, #menu { max-width: calc(100vw - 24px); max-height: calc(100dvh - 110px); overflow-y: auto; }
+.menu a, #menu a { min-height: 44px; margin-block: 8px; }
+#menu button { margin-bottom: 8px; }
+.acciones, .filtros, .redes, .footer-enlaces, .controles, .producto-pie, .herramientas-extra { gap: 12px; }
+.footer-enlaces, .producto-pie { flex-wrap: wrap; }
+.habilidades { min-width: 0; }
+.favorito { width: 44px; height: 44px; }
+.titulo-truncado, .info-producto h3, .proyecto-info h3 {
+  display: block; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.titulo-truncado { flex: 1; }
+select, textarea, input { max-width: 100%; font-size: 16px; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--form-acento); outline-offset: 4px;
+}
+dialog { max-height: 85vh; max-height: 85dvh; overflow-y: auto; }
+/* Los avisos superiores no cubren un input enfocado por el teclado virtual. */
+#aviso { top: 110px; bottom: auto; pointer-events: none; }
+
+@media(max-width:600px){.contenedor{width:90%;}#buscar{font-size:16px;}}
+@media(orientation:landscape) and (max-height:500px){
+ html{scroll-padding-top:78px;}header{padding:6px 5%;}.portada{padding-top:24px;padding-bottom:24px;min-height:auto;}.portada h1{font-size:clamp(32px,5vw,48px);}.seccion{padding-top:20px;padding-bottom:20px;}#menu{max-height:calc(100dvh - 80px);}#aviso{top:74px;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}

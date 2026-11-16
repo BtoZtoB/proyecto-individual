@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Auditoría de transferencia</title>
+<style>
+*{box-sizing:border-box}body{font:16px/1.6 Arial,sans-serif;background:#eef1f5;color:#182537;margin:0;padding:24px;min-height:100dvh}main{max-width:1000px;margin:auto}button,a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;padding:10px 16px}button{background:#245b91;color:white;border:0;border-radius:8px;font:inherit;cursor:pointer}table{border-collapse:collapse;width:100%;background:white;margin:24px 0}td,th{padding:12px;border:1px solid #cdd8e4;text-align:left} .tabla{overflow:auto}iframe{position:absolute;left:-10000px;top:0;width:390px;height:844px;border:0}.nota{font-size:14px}button:disabled{opacity:.6}
+</style></head><body><main>
+<h1>Auditoría de transferencia</h1>
+<p>Sirve el proyecto con Live Server. Abre DevTools → Network, activa <strong>Disable cache</strong> y deja DevTools abierto durante la prueba. Si la PWA ya está activa, marca también <strong>Application → Service Workers → Bypass for network</strong> durante esta medición. Después presiona el botón. Las cifras corresponden a este navegador y servidor, e incluyen las imágenes de la página.</p>
+<p class="nota">Para la entrega de clase, conserva también una captura de Network. Un resultado desde caché puede mostrar 0 KB transferidos. El resultado no representa una medición de todos los dispositivos o navegadores.</p>
+<button id="medir" type="button">Medir las cinco páginas</button>
+<p id="estado" role="status"></p>
+<div class="tabla"><table><thead><tr><th>Página</th><th>Transferidos (KB)</th><th>Recursos medidos</th></tr></thead><tbody id="resultados"></tbody></table></div>
+<a href="index.html">Volver al portafolio</a>
+</main><script>
+'use strict';
+const paginas=['index.html','catalogo1/index.html','catalogo2/index.html','catalogo3/index.html','catalogo4/index.html'];
+const boton=document.getElementById('medir'),estado=document.getElementById('estado'),tabla=document.getElementById('resultados');
+function celda(texto){const td=document.createElement('td');td.textContent=texto;return td;}
+function medir(url){return new Promise((resolve,reject)=>{
+ const frame=document.createElement('iframe');frame.title='Medición de '+url;
+ const timeout=setTimeout(()=>{frame.remove();reject(new Error('La página no terminó de cargar.'));},15000);
+ frame.onload=async()=>{
+  try{
+   const doc=frame.contentDocument;
+   const imgs=[...doc.images];
+   await Promise.all(imgs.map(img=>new Promise(r=>{if(img.complete){r();return;}img.onload=r;img.onerror=r;img.loading='eager';})));
+   await new Promise(r=>setTimeout(r,150));
+   const entradas=[...frame.contentWindow.performance.getEntriesByType('navigation'),...frame.contentWindow.performance.getEntriesByType('resource')];
+   resolve({bytes:entradas.reduce((sum,e)=>sum+(e.transferSize||0),0),recursos:entradas.length});
+  }catch(e){reject(e);}finally{clearTimeout(timeout);frame.remove();}
+ };
+ frame.src=url+'?auditoria='+Date.now();document.body.append(frame);
+});}
+boton.addEventListener('click',async()=>{
+ boton.disabled=true;tabla.replaceChildren();
+ try{
+  for(const url of paginas){estado.textContent='Midiendo '+url+'…';const dato=await medir(url);const tr=document.createElement('tr');tr.append(celda(url),celda((dato.bytes/1024).toFixed(2)),celda(String(dato.recursos)));tabla.append(tr);}
+  estado.textContent='Prueba finalizada. Anota los KB y toma la captura de Network con caché deshabilitada.';
+ }catch(e){estado.textContent='No se pudo completar la medición. Abre esta página desde Live Server y repite la prueba.';}finally{boton.disabled=false;}
+});
+</script></body></html>

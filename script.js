@@ -1,4 +1,6 @@
 $(function () {
+  if (window.__portafolioListo) return;
+  window.__portafolioListo = true;
   const redes = {
     whatsapp: "https://wa.me/59178802923?text=Hola%20soy%20Bryan",
     facebook: "https://www.facebook.com/share/19hZwoBxzv/",
@@ -46,7 +48,7 @@ $(function () {
     }
   }
 
-  $("#boton-menu").on("click", function () {
+  $("#boton-menu").off("click.portafolio").on("click.portafolio", function () {
     const abierto = $(this).attr("aria-expanded") === "true";
 
     $(this)
@@ -57,17 +59,17 @@ $(function () {
     $("#menu").stop(true, true).slideToggle(180);
   });
 
-  $("#menu a").on("click", function () {
+  $("#menu a").off("click.portafolio").on("click.portafolio", function () {
     cerrarMenu();
   });
 
-  $(document).on("click", function (evento) {
+  $(document).off("click.portafolio").on("click.portafolio", function (evento) {
     if (!$(evento.target).closest("#menu, #boton-menu").length) {
       cerrarMenu();
     }
   });
 
-  $(document).on("keydown", function (evento) {
+  $(document).off("keydown.portafolio").on("keydown.portafolio", function (evento) {
     if (
       evento.key === "Escape" &&
       $("#boton-menu").attr("aria-expanded") === "true"
@@ -77,7 +79,7 @@ $(function () {
   });
 
   // INFORMACIÓN ADICIONAL
-  $("#boton-info").on("click", function () {
+  $("#boton-info").off("click.portafolio").on("click.portafolio", function () {
     const abierto = $(this).attr("aria-expanded") === "true";
 
     $(this)
@@ -124,8 +126,8 @@ $(function () {
     }
 
     elemento
-      .on("error", mostrarReemplazo)
-      .on("load", mostrarImagen);
+      .off("error.portafolio").on("error.portafolio", mostrarReemplazo)
+      .off("load.portafolio").on("load.portafolio", mostrarImagen);
 
     if (imagen.complete) {
       if (imagen.naturalWidth > 0) {
@@ -137,7 +139,7 @@ $(function () {
   });
 
   // FILTROS DE PROYECTOS
-  $(".filtro").on("click", function () {
+  $(".filtro").off("click.portafolio").on("click.portafolio", function () {
     const filtro = $(this).attr("data-filtro");
     let cantidad = 0;
 
@@ -173,10 +175,11 @@ $(function () {
   const coloresProyectos = {
     elegante: "#e1e7ed",
     moderno: "#d7e3f0",
-    creativo: "#dce9e9"
+    creativo: "#dce9e9",
+    minimalista: "#dfeded"
   };
 
-  $(".proyecto").on("mouseenter focusin", function () {
+  $(".proyecto").off("mouseenter.portafolio focusin.portafolio").on("mouseenter.portafolio focusin.portafolio", function () {
     const estilo = $(this).attr("data-estilo");
 
     $("body").css(
@@ -185,13 +188,13 @@ $(function () {
     );
   });
 
-  $(".proyecto").on("mouseleave", function () {
+  $(".proyecto").off("mouseleave.portafolio").on("mouseleave.portafolio", function () {
     if (!this.contains(document.activeElement)) {
       $("body").css("background-color", "");
     }
   });
 
-  $(".proyecto").on("focusout", function (evento) {
+  $(".proyecto").off("focusout.portafolio").on("focusout.portafolio", function (evento) {
     if (
       !this.contains(evento.relatedTarget) &&
       !$(this).is(":hover")
@@ -201,7 +204,7 @@ $(function () {
   });
 
   // REDES SOCIALES
-  $("[data-red]").on("click", function () {
+  $("[data-red]").off("click.portafolio").on("click.portafolio", function () {
     const red = $(this).attr("data-red");
     const enlace = redes[red];
 
@@ -216,6 +219,10 @@ $(function () {
         "El enlace de " + nombresRedes[red] + " está pendiente."
       );
     }
+  });
+
+  $(window).off("pagehide.portafolio").on("pagehide.portafolio", function () {
+    clearTimeout(temporizadorAviso); $("#aviso").stop(true, true).hide();
   });
 
   $("#anio").text(new Date().getFullYear());

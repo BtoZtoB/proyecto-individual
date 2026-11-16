@@ -6,18 +6,31 @@
   <meta name="description" content="Portafolio personal y proyectos de desarrollo web">
   <title>Mi portafolio</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=guia2">
 
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="assets/responsividad.css?v=guia2">
+  <script defer src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script defer src="script.js?v=guia2"></script>
+  <script defer src="assets/modulos.js?v=guia2"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#142133">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="assets/pwa.css?v=pwa1">
+  <script defer src="sync-config.js"></script>
+  <script defer src="assets/cola-offline.js"></script>
+  <script defer src="pwa.js?v=pwa1"></script>
+  <link rel="stylesheet" href="assets/ui-avanzada.css?v=ui2">
+  <script defer src="assets/ui-avanzada.js?v=ui2"></script>
 </head>
-<body>
+<body data-catalogo="portafolio" class="vista-personal">
 
-  <header class="cabecera">
+  <header data-hidratado="false" class="cabecera">
     <a href="#inicio" class="marca">Mi portafolio<span>.</span></a>
 
     <button
-      id="boton-menu"
+      id="boton-menu" disabled aria-busy="true"
       class="boton-menu"
       type="button"
       aria-label="Abrir menú"
@@ -34,8 +47,12 @@
       <a href="#habilidades">Habilidades</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
+      <a href="#modulos-practicos">Turnos y lista</a>
+      <a href="#herramientas-ui">Filtros y actividad</a>
+      <a href="diagnostico.html">Diagnóstico</a>
     </nav>
   </header>
+  <span id="estadoHidratacion" class="solo-lectores" role="status">Preparando interacción…</span>
 
   <main>
 
@@ -151,7 +168,7 @@
       <div class="titulo-proyectos">
         <div>
           <span class="etiqueta">MIS PROYECTOS WEB</span>
-          <h2>Tres estilos, tres catálogos.</h2>
+          <h2>Cuatro estilos, cuatro catálogos.</h2>
         </div>
         <p>
           Plantillas preparadas para personalizar con distintas empresas.
@@ -178,10 +195,14 @@
           data-filtro="creativo" aria-pressed="false">
           Creativo
         </button>
+        <button class="filtro" type="button"
+          data-filtro="minimalista" aria-pressed="false">
+          Minimalista
+        </button>
       </div>
 
       <p id="contador" class="contador" aria-live="polite">
-        3 proyectos
+        4 proyectos
       </p>
 
       <div class="proyectos">
@@ -191,9 +212,9 @@
 
           <a href="catalogo1/index.html"
             class="imagen-proyecto tono-1"
-            aria-label="Abrir catálogo 1, estilo elegante">
+            aria-label="Abrir catálogo de Panificadora Ponky">
             <img
-              src="img/catalogo1.jpg"
+              src="assets/img/catalogo1.svg"
               alt="Vista previa del catálogo elegante"
               data-respaldo="Catálogo 01"
               loading="lazy">
@@ -201,11 +222,11 @@
 
           <div class="proyecto-info">
             <span class="estado">01 / ESTILO ELEGANTE</span>
-            <h3>Catálogo elegante</h3>
+            <h3>Panificadora Ponky</h3>
 
             <p>
-              Diseño claro, tonos neutros y una colección
-              organizada en tarjetas.
+              Panadería y repostería: seis productos y
+              un kit de graduación personalizable.
             </p>
 
             <div class="etiquetas-proyecto">
@@ -228,7 +249,7 @@
             class="imagen-proyecto tono-2"
             aria-label="Abrir catálogo 2, estilo moderno">
             <img
-              src="img/catalogo2.jpg"
+              src="assets/img/catalogo2.svg"
               alt="Vista previa del catálogo moderno"
               data-respaldo="Catálogo 02"
               loading="lazy">
@@ -263,7 +284,7 @@
             class="imagen-proyecto tono-3"
             aria-label="Abrir catálogo 3, estilo creativo">
             <img
-              src="img/catalogo3.jpg"
+              src="assets/img/catalogo3.svg"
               alt="Vista previa del catálogo creativo"
               data-respaldo="Catálogo 03"
               loading="lazy">
@@ -286,6 +307,42 @@
             </div>
 
             <a href="catalogo3/index.html" class="enlace-proyecto">
+              Abrir catálogo ↗
+            </a>
+          </div>
+        </article>
+
+
+        <article class="proyecto"
+          data-estilo="minimalista" data-color="#e0eeee">
+
+          <a href="catalogo4/index.html"
+            class="imagen-proyecto tono-4"
+            aria-label="Abrir catálogo 1, estilo minimalista">
+            <img
+              src="assets/img/catalogo4.svg"
+              alt="Vista previa del catálogo minimalista"
+              data-respaldo="Catálogo 04"
+              loading="lazy">
+          </a>
+
+          <div class="proyecto-info">
+            <span class="estado">04 / ESTILO MINIMALISTA</span>
+            <h3>Catálogo minimalista</h3>
+
+            <p>
+              Diseño minimalista, tonos suaves y tarjetas
+              con una presentación limpia y sencilla.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>jQuery</span>
+            </div>
+
+            <a href="catalogo4/index.html" class="enlace-proyecto">
               Abrir catálogo ↗
             </a>
           </div>
@@ -318,8 +375,16 @@
           </button>
         </div>
       </div>
+      <form id="pwaForm" class="contacto-personal" novalidate>
+        <h3>Envíame una consulta</h3><p>Se guarda en este navegador; todavía no se envía a un servidor.</p>
+        <label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="err-nombre"><small id="err-nombre" class="error-modulo" aria-live="polite"></small>
+        <label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" required maxlength="150" aria-describedby="err-correo"><small id="err-correo" class="error-modulo" aria-live="polite"></small>
+        <label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" required minlength="10" maxlength="500" aria-describedby="err-mensaje"></textarea><small id="err-mensaje" class="error-modulo" aria-live="polite"></small>
+        <button type="submit" class="btn-accion">Guardar consulta</button><p id="resultadoContacto" role="status"></p>
+      </form>
     </section>
 
+    <div id="modulos-practicos" class="contenedor seccion"></div>
   </main>
 
   <footer>

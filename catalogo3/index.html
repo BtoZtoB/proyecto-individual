@@ -4,15 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo 3 | Plantilla creativa</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css?v=guia2">
+  <link rel="stylesheet" href="../assets/catalogos-extra.css?v=guia2">
+  <link rel="stylesheet" href="../assets/responsividad.css?v=guia2">
+  <script defer src="../assets/vendor/jquery-3.7.1.min.js"></script>
+  <script defer src="../assets/catalogos.js?v=guia2"></script>
+  <script defer src="../assets/modulos.js?v=guia2"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#142133">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" href="../icons/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="../assets/pwa.css?v=pwa1">
+  <script defer src="../sync-config.js"></script>
+  <script defer src="../assets/cola-offline.js"></script>
+  <script defer src="../pwa.js?v=pwa1"></script>
+  <link rel="stylesheet" href="../assets/ui-avanzada.css?v=ui2">
+  <script defer src="../assets/ui-avanzada.js?v=ui2"></script>
 </head>
-<body>
+<body data-catalogo="3">
 
-  <header>
+  <header data-hidratado="false">
     <a href="#inicio" class="marca">empresa<span>03 ✳</span></a>
-    <button class="hamburguesa" type="button"
+    <button class="hamburguesa" disabled aria-busy="true" type="button"
       aria-label="Abrir menú" aria-expanded="false"
       aria-controls="menu">☰</button>
 
@@ -22,8 +36,12 @@
       <a href="#catalogo">Catálogo</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
+      <a href="#modulos-practicos">Turnos y lista</a>
+      <a href="#herramientas-ui">Filtros y actividad</a>
+      <a href="../diagnostico.html">Diagnóstico</a>
     </nav>
   </header>
+  <span id="estadoHidratacion" class="solo-lectores" role="status">Preparando interacción…</span>
 
   <main>
     <section id="inicio" class="contenedor portada">
@@ -43,7 +61,7 @@
             <a href="#catalogo" class="boton">Descubrir productos ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner1.jpg" alt="Imagen principal de la empresa">
+            <img src="../assets/img/banner1.svg" alt="Imagen principal de la empresa">
           </div>
         </div>
 
@@ -55,7 +73,7 @@
             <a href="#catalogo" class="boton">Explorar catálogo ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner2.jpg" alt="Imagen de una colección">
+            <img src="../assets/img/banner2.svg" alt="Imagen de una colección">
           </div>
         </div>
 
@@ -67,7 +85,7 @@
             <a href="#contacto" class="boton">Ir a contacto ↗</a>
           </div>
           <div class="slide-imagen">
-            <img src="img/banner3.jpg" alt="Imagen de presentación adicional">
+            <img src="../assets/img/banner3.svg" alt="Imagen de presentación adicional">
           </div>
         </div>
 
@@ -131,6 +149,7 @@
         <button data-red="tiktok" type="button">TikTok ↗</button>
       </div>
     </section>
+    <div id="modulos-practicos" class="contenedor seccion"></div>
   </main>
 
   <footer>
